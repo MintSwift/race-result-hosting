@@ -58,6 +58,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 30px;
+    white-space: nowrap;
 }
 
 .links a {
@@ -247,9 +248,18 @@ footer .container {
     font-size: 14px;
 }
 
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
 .footer-links a {
     color: var(--text-muted);
-    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
 }
 
 @media (max-width: 968px) {
@@ -262,4 +272,17 @@ footer .container {
     .hero-btns { justify-content: center; }
     .feature-grid { grid-template-columns: 1fr; }
     .screenshot-carousel { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+}
+
+@media (max-width: 600px) {
+    header { height: 70px; }
+    .container { padding: 0 16px; }
+    .logo { font-size: 20px; }
+    .links { gap: 12px; }
+    .links a { font-size: 13px; }
+    .btn-primary { padding: 8px 16px; font-size: 13px; border-radius: 6px; }
+    .hero { padding-top: 140px; }
+    
+    footer .container { flex-direction: column; text-align: center; gap: 12px; font-size: 13px; }
+    .footer-links { justify-content: center; white-space: nowrap; }
 }
