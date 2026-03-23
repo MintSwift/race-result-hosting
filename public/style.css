@@ -236,6 +236,32 @@ nav {
     margin-bottom: 40px;
 }
 
+.contact-section {
+    padding: 0 0 120px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.contact-section p {
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+.contact-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 1px rgba(225, 6, 0, 0.25), 0 10px 30px rgba(225, 6, 0, 0.2);
+}
+
+.contact-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
 footer {
     padding: 60px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -272,6 +298,7 @@ footer .container {
     .hero-btns { justify-content: center; }
     .feature-grid { grid-template-columns: 1fr; }
     .screenshot-carousel { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .contact-section h2 { font-size: 30px; }
 }
 
 @media (max-width: 600px) {

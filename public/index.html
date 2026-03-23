@@ -86,6 +86,14 @@
                 <a href="#" class="btn-primary large">무료 다운로드</a>
             </div>
         </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <h2>문의하기</h2>
+                <p>서비스 제안, 오류 제보를 남겨주세요.</p>
+                <a id="contact-link" href="https://docs.google.com/forms/d/e/1FAIpQLScoBk-frGumC_ItV0tCOeXzNRfLDNTaEILf90Ey6s8d5MHI1A/viewform" class="btn-primary contact-btn" target="_blank" rel="noopener noreferrer">Google Form으로 문의하기</a>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -94,9 +102,48 @@
             <div class="footer-links">
                 <a href="privacy.html">개인정보 처리방침</a>
                 <a href="terms.html">이용약관</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScoBk-frGumC_ItV0tCOeXzNRfLDNTaEILf90Ey6s8d5MHI1A/viewform" target="_blank" rel="noopener noreferrer">문의하기</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        (function () {
+            var contactLink = document.getElementById('contact-link');
+            if (!contactLink) return;
+
+            var ua = navigator.userAgent || '';
+
+            function detectOS(userAgent) {
+                if (/Windows/i.test(userAgent)) return 'Windows';
+                if (/Macintosh|Mac OS X/i.test(userAgent)) return 'macOS';
+                if (/iPhone|iPad|iPod/i.test(userAgent)) return 'iOS';
+                if (/Android/i.test(userAgent)) return 'Android';
+                if (/Linux/i.test(userAgent)) return 'Linux';
+                return 'Unknown';
+            }
+
+            function detectBrowser(userAgent) {
+                if (/Edg\//i.test(userAgent)) return 'Microsoft Edge';
+                if (/OPR\//i.test(userAgent)) return 'Opera';
+                if (/SamsungBrowser\//i.test(userAgent)) return 'Samsung Internet';
+                if (/Chrome\//i.test(userAgent)) return 'Chrome';
+                if (/Safari\//i.test(userAgent) && !/Chrome|Chromium|CriOS|Edg\//i.test(userAgent)) return 'Safari';
+                if (/Firefox\//i.test(userAgent)) return 'Firefox';
+                return 'Unknown';
+            }
+
+            var contactValue = [
+                'OS 정보: ' + detectOS(ua),
+                '브라우저 정보: ' + detectBrowser(ua),
+                'User-Agent: ' + ua
+            ].join('\n');
+
+            var formUrl = new URL('https://docs.google.com/forms/d/e/1FAIpQLScoBk-frGumC_ItV0tCOeXzNRfLDNTaEILf90Ey6s8d5MHI1A/viewform');
+            formUrl.searchParams.set('usp', 'pp_url');
+            formUrl.searchParams.set('entry.1643401214', contactValue);
+
+            contactLink.href = formUrl.toString();
+        })();
+    </script>
 </body>
 </html>
